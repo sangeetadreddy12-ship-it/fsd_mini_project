@@ -1,0 +1,27 @@
+PROJECT OVERVIEW:
+this is weather trend visualiser that allows user to search for a city and get real-time weather data.it uses two different APIs to fetch geographical and meteorological information.
+
+TECHNICAL STACK:
+Frontend:react
+APIs:open-meteo geocoding and forecast APIs
+
+setWeather({ error: "❌ City not found." });
+ setLoading(false);
+ return;
+ }
+ const { latitude, longitude, name, country } = geoData.results[0];
+ // Step 2: Get weather
+ const weatherURL = https://api.openmeteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_w
+eather=true;
+ const weatherRes = await fetch(weatherURL);
+ const weatherData = await weatherRes.json();
+ setWeather({
+ name,
+ country,
+ temp: weatherData.current_weather.temperature,
+ wind: weatherData.current_weather.windspeed,
+ code: weatherData.current_weather.weathercode,
+ time: weatherData.current_weather.time
+ });
+ } catch (error) {
+ setWeather({ error: "❌ Something went wrong!" });
